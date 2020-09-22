@@ -2,11 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def index(req):
-	return render(req, 'myweb/index.html')
 
-def united(req):
-	return render(req, 'myweb/united.html')
+def catwelcome(req):
+    return render(req, 'myweb/catwelcome.html')
+
+def cathome(req):
+    return render(req, 'myweb/cathome.html')
+
+def catcats(req):
+    return render(req, 'myweb/catcats.html')
+
+def bootswatch(req):
+    return render(req, 'myweb/bs.sketchy.html')
 
 def detail(request, question_id):
     return render(request, 'myweb/detail.html')

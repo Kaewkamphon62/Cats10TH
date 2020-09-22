@@ -14,3 +14,12 @@ class Choice(models.Model):
 
     def __str__(self):
         return f'{self.question.question_text} - {self.choice_text} - {self.votes}'
+
+class Cat(models.Model):
+    cat_name = models.CharField(max_length=200)
+    cat_type = models.CharField(max_length=200)
+    cat_age = models.CharField(max_length=200)
+    cat_gender = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f'{self.cat_name} - {self.cat_type} - {self.cat_age} - {self.cat_gender}'
