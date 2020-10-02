@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kaewkamphon_Cats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {% load static %}
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
+
+<style>
+    body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+     background-image: url('https://www.pythonanywhere.com/user/kaewkamphon/files/home/kaewkamphon/mysite/myweb/templates/myweb/images/bgcat.png');
+    }
+</style>
+
+  </head>
+  <body>
+
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <div class="container">
+        <a href="/home" class="navbar-brand">HOME</a>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="/*">10แมวไทยยอดนิยม</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">ADMIN</a>
+            </li>
+          </ul>
+
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="/logout">LOGOUT</a>
+            Welcome {{ user }}
+            {% else %}
+            <a class="nav-link" href="/login">LOGIN</a>
+            {% endif %}
+
+        </div>
+      </div>
+    </div>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+  </body>
+</html>
