@@ -4,10 +4,13 @@ from . import views
 
 urlpatterns = [
 
+    path('', views.myhtml, name='myhtml'),
+
     path('', views.welcome, name='welcome'),
     path('', views.home, name='home'),
     path('', views.login_user, name='login'),
     path('', views.logout_user, name='logout'),
+    path('', views.register_user, name='register'),
 
 
 

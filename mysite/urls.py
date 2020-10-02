@@ -6,10 +6,12 @@ urlpatterns = [
 
     path('', views.welcome),
     path('myweb/', include('myweb.urls')),
+    path('myhtml/', views.myhtml),
 
     path('home/', views.home),
     path('login/', views.login_user),
     path('logout/', views.logout_user),
+    path('register/', views.register_user),
 
     path('admin/', admin.site.urls),
 ]

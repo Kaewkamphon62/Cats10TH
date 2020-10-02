@@ -3,12 +3,16 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from .models import Question, Choice
 
 # Create your views here.
 
 def welcome(req):
     return render(req, 'myweb/welcome.html')
+
+def myhtml(req):
+    return render(req, 'myweb/myhtml.html')
 
 def home(req):
     return render(req, 'myweb/home.html')
@@ -30,6 +34,20 @@ def login_user(req):
 def logout_user(req):
     logout(req)
     return redirect("/home")
+
+def register_user(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('/home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'myweb/register.html', {'form': form})
 
 
 def detail(request, question_id):

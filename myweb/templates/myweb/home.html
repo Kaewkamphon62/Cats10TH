@@ -1,56 +1,7 @@
-<!DOCTYPE html>
+{% extends "myweb/myhtml.html" %}
+
+{% block content %}
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Kaewkamphon_Cats</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    {% load static %}
-    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
-
-<style>
-    body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-     background-image: url('https://scontent.fubp1-1.fna.fbcdn.net/v/t1.0-9/120618890_2697649110505199_6055229432102416493_o.jpg?_nc_cat=111&_nc_sid=730e14&_nc_ohc=nRrj_jRszmAAX8xChVn&_nc_ht=scontent.fubp1-1.fna&oh=72fa6500ae13f2e35eddf0651ee075a9&oe=5F9C6910');
-    }
-</style>
-
-  </head>
-  <body>
-
-    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <div class="container">
-        <a href="/home" class="navbar-brand">HOME</a>
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item">
-              <a class="nav-link" href="/*">10แมวไทยยอดนิยม</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin">ADMIN</a>
-            </li>
-          </ul>
-
-            {% if user.is_authenticated %}
-            <a class="nav-link" href="/logout">LOGOUT</a>
-            Welcome {{ user }}
-            {% else %}
-            <a class="nav-link" href="/login">LOGIN</a>
-            {% endif %}
-
-        </div>
-      </div>
-    </div>
-
-
-    {% block content %}
-
-    {% endblock %}
-
-
-  </body>
 </html>
+{% endblock %}
