@@ -12,11 +12,22 @@ from django.contrib import messages
 def welcome(req):
     return render(req, 'myweb/welcome.html')
 
+#################################################################################################################
+
 def myhtml(req):
     return render(req, 'myweb/myhtml.html')
 
+#################################################################################################################
+
 def home(req):
     return render(req, 'myweb/home.html')
+
+#################################################################################################################
+
+def topcats(req):
+    return render(req, 'myweb/topcats.html')
+
+#################################################################################################################
 
 def login_user(req):
     if req.user.is_authenticated:
@@ -37,13 +48,16 @@ def login_user(req):
         context = {}
         return render(req, 'myweb/login.html', context)
 
+#################################################################################################################
 
 def logout_user(req):
     logout(req)
     return redirect("/home")
 
+#################################################################################################################
 
 def register_user(response):
+
     if response.user.is_authenticated:
         return redirect('/home')
 
@@ -62,28 +76,38 @@ def register_user(response):
 
                 return redirect("/login")
             
-            elif len(password1) < 8 or len(password2) < 8:
-                messages.info(response, 'รหัสผ่านของคุณต้องมี 8 ตัวอย่างต่ำ')
-                
-            elif password1 != password2:
-                messages.info(response, 'รหัสผ่านของคุณทั้ง 2 อันต้องเหมือนกัน')
-                
-            else:
-                messages.info(response, 'รหัสผ่านของคุณต้องไม่ใช่ตัวเลขทั้งหมด')
+
+            #ตรวจสอบการสมัครให้ตรงตามเงื่อนไข
+                #รหัสผ่านของคุณต้องมีอักขระอย่างน้อย 8 ตัว 1_1
+            if len(password1) < 8 or len(password2) < 8:
+                messages.info(response, '!!!', extra_tags='password1_1')
+                #รหัสผ่านของคุณต้องไม่เป็นตัวเลขทั้งหมด 1_2
+            if password1.isdecimal() == True or password2.isdecimal() == True:                                        #รหัสผ่านของคุณต้องไม่เป็นตัวเลขทั้งหมด
+                messages.info(response, '!!!', extra_tags='password1_2')
+                #รหัสผ่านต้องเหมือนกัน 2
+            if password1 != password2:
+                messages.info(response, 'ไม่ตรงกับ PASSWORD', extra_tags='password2')
             
 
     context = {'form':form}
     return render(response, "myweb/register.html", {"form":form})
 
+#################################################################################################################
 
 def detail(request, question_id):
     question = Question.objects.get(id=question_id)
     choices = Choice.objects.filter(question=question)
     return render(request, 'myweb/detail.html', { 'question': question, 'choices': choices})
 
+#################################################################################################################
+
 def results(request, question_id):
     response = "You're looking at the results of question %s."
     return HttpResponse(response % question_id)
 
+#################################################################################################################
+
 def vote(request, question_id):
     return HttpResponse("You're voting on question %s." % question_id)
+
+#################################################################################################################
