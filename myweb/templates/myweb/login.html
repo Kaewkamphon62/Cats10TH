@@ -545,7 +545,7 @@ iframe {
 						Username
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="username" name="username" >
+						<input class="input100" type="username" name="username">
 						<span class="focus-input100"></span>
 					</div>
 
@@ -554,7 +554,7 @@ iframe {
 					</span>
 					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
 						<span class="btn-show-pass">
-
+							
 						</span>
 						<input class="input100" type="password" name="password" >
 						<span class="focus-input100"></span>
@@ -563,10 +563,12 @@ iframe {
 					<div class="flex-sb-m w-full p-b-35">
 						<div class="contact100-form-checkbox">
               {% for message in messages %}
+              {%if "check" in message.tags %}
                   <p id="messages" style="color:red">{{message}}</p>
+              {%endif%}
               {% endfor %}
 							</label>
-						</div>
+            </div>
 
 						<div>
 							<a href="/register" class="txt3">

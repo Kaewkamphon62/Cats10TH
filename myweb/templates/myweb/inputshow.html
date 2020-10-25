@@ -1,0 +1,59 @@
+{% extends "myweb/myhtml.html" %}
+
+{% block content %}
+<html lang="en">
+
+
+    <style>
+        .content {
+          max-width: 300px;
+          margin: auto;
+          background: white;
+          padding: 50px;
+          border: 1px inset black;
+        }
+        p{
+            font-size: 15px;
+            color:black;
+        }
+
+        .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        }
+        .button {
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        }
+
+        .button:hover {
+        background-color: #555555;
+        color: white;
+        }
+
+    </style>
+<div class="content">
+    <form method="POST" text>
+        {% csrf_token %}
+        <p>ชื่อน้องเหมียวของคุณ</p>
+        <p>{{ form.namecat }}</p>
+        <p>เนื้อหา</p>
+        <p>{{ form.detail }}</p>
+        <p>รูป (เฉพาะเป็นลิ้ง)</p>
+        <p>{{ form.imglink }}</p>
+        <input class="button button" type="submit" />
+    </form>
+</div>
+ 
+</html>
+{% endblock %}

@@ -3,5 +3,55 @@
 {% block content %}
 <html lang="en">
 
+
+    <style>
+        .content {
+          max-width: 1000px;
+          margin: auto;
+          background: #F1F1F1;
+          padding: 10px;
+          border: 1px inset black;
+        }
+
+        h{
+            font-size: 30px;
+            color:black;
+        }
+        p {
+            font-size: 17px;
+        }
+                /* Create two equal columns that floats next to each other */
+        .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 320px; /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+    </style>
+<div class="content">
+    <a href="/inputshow" >เพิ่มน้องแมวลงเว็บไซต์ของคุณได้ที่นี่(สำหรับสมาชิก)</a>
+</div>
+{% for s in showinputcats %}
+    <div class="content">
+        <div class="row">
+            <div class="column">
+                <img class="center" src="{{ s.imglink }}" style="width:100%" class="w3-margin-bottom" height="300">
+            </div>
+            <div class="column">
+                <h>ชื่อแมว: {{ s.namecat}}</p>
+                <p>{{ s.detail}}</p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+ 
 </html>
 {% endblock %}

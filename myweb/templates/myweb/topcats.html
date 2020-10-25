@@ -3,5 +3,44 @@
 {% block content %}
 <html lang="en">
 
+  <style>
+        .content {
+          max-width: 1000px;
+          margin: auto;
+          background: #F1F1F1;
+          padding: 10px;
+          border: 4px dashed black;
+        }
+        
+        img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          border: 2px solid;
+        }
+
+        h{
+            font-size: 30px;
+            color:black;
+        }
+        p {
+            font-size: 17px;
+        }
+
+  </style>
+        
+{% for c in topcats %}
+    <div class="content">
+        <h>{{ c.Cat_Species}}</p>
+        <img class="center" src="{{ c.imglink }}" style="width:50%" class="w3-margin-bottom">
+        <p>&nbsp;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ c.CS_information}}</p>
+        <p>{{ c.General_appearance_and_behavior}}</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ c.Gaab_information}}</p>
+        <p>{{ c.husbandry}}</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ c.h_information}}</p>
+      </div>
+{% endfor %}
+
 </html>
 {% endblock %}

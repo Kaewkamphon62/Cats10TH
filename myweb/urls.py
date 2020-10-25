@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.welcome, name='welcome'),
     path('', views.home, name='home'),
     path('', views.topcats, name='topcats'),
+    path('', views.inputshow, name='inputshow'),
 
     path('', views.login_user, name='login'),
     path('', views.logout_user, name='logout'),

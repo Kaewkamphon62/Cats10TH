@@ -20,16 +20,29 @@ class Choice(models.Model):
 #################################################################################################################
 
 class top10cat(models.Model):
-    Cat_Species = models.CharField(max_length=100) #สายพันธุ์
-    CS_information = models.CharField(max_length=500)
+    Cat_Species = models.CharField(max_length=100,blank=True) #สายพันธุ์
+    CS_information = models.CharField(max_length=1000,blank=True)
 
-    General_appearance_and_behavior = models.CharField(max_length=100) #ลักษณะและพฤติกรรมทั่วไป
-    Gaab_information = models.CharField(max_length=500)
+    General_appearance_and_behavior = models.CharField(max_length=100,blank=True) #ลักษณะและพฤติกรรมทั่วไป
+    Gaab_information = models.CharField(max_length=1000)
 
-    husbandry = models.CharField(max_length=100) #การดูแล
-    h_information = models.CharField(max_length=500)
+    husbandry = models.CharField(max_length=100,blank=True) #การดูแล
+    h_information = models.CharField(max_length=1000,blank=True)
+
+    imglink = models.CharField(max_length=300,blank=True) #รูป
 
     def __str__(self):
-        return f'{self.Cat_Species} - {self.CS_information} - {self.General_appearance_and_behavior} - {self.Gaab_information} - {self.husbandry} - {self.h_information}'
+        return f'{self.Cat_Species} - {self.CS_information} - {self.General_appearance_and_behavior} - {self.Gaab_information} - {self.husbandry} - {self.h_information} - {self.imglink}'
+
+#################################################################################################################
+
+
+class inputcat(models.Model):
+    namecat = models.CharField(max_length=100,blank=True) #ชื่อน้องแมว
+    detail = models.CharField(max_length=300,blank=True) #รายละเอียด
+    imglink = models.CharField(max_length=300,blank=True) #รูป
+
+    def __str__(self):
+        return f'{self.namecat} - {self.detail} - {self.imglink}'
 
 #################################################################################################################
